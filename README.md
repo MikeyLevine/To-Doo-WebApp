@@ -50,7 +50,7 @@ A modern, full-stack todo application featuring user authentication, multiple li
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/todo-app.git
+   git clone https://github.com/MikeyLevine/To-Doo-WebApp
    cd todo-app
    ```
 
