@@ -1,0 +1,16 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Todo app with auth, lists, and calendar",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "sql.js": "^1.10.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  }
+}

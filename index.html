@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <title>Todo List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Loading Spinner -->
+    <div id="spinner">
+      <div class="spinner-circle"></div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message"></div>
+
+    <!-- Auth Screen -->
+    <div id="auth-screen">
+      <div id="auth-card">
+        <h1>Todo App</h1>
+        <p id="auth-subtitle">Sign in to continue</p>
+
+        <div id="auth-tabs">
+          <button class="filter-btn active-filter" id="auth-login-tab" onclick="showLoginTab()">Log In</button>
+          <button class="filter-btn" id="auth-register-tab" onclick="showRegisterTab()">Register</button>
+        </div>
+
+        <div id="auth-form">
+          <input type="text" id="auth-username" placeholder="Username" autocomplete="username" />
+          <input type="password" id="auth-password" placeholder="Password" autocomplete="current-password" />
+          <p id="auth-error"></p>
+          <button id="auth-submit-btn" onclick="handleLogin()">Log In</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Screen (hidden until logged in) -->
+    <div id="main-screen" style="display:none;">
+      <!-- Tab Bar -->
+      <div id="tab-bar">
+        <button class="tab-btn active-tab" id="tab-tasks" onclick="showTasksView()">Tasks</button>
+        <button class="tab-btn" id="tab-calendar" onclick="showCalendarView()">Calendar</button>
+      </div>
+
+      <div id="layout">
+        <!-- Sidebar -->
+        <div id="sidebar">
+          <div id="sidebar-header">
+            <span id="username-display"></span>
+            <button id="logout-btn" onclick="handleLogout()">Sign out</button>
+          </div>
+
+          <div id="list-sidebar"></div>
+
+          <div id="new-list-area">
+            <input type="text" id="new-list-input" placeholder="New list..." />
+            <button id="new-list-btn" onclick="createList()">+</button>
+          </div>
+        </div>
+
+        <!-- Todo Section -->
+        <div id="todo-section">
+          <div id="app">
+            <h1>My Todo List</h1>
+            <p id="task-counter"></p>
+            <div id="filter-bar">
+              <button class="filter-btn active-filter" data-filter="all" onclick="filterTasks('all')">All</button>
+              <button class="filter-btn" data-filter="active" onclick="filterTasks('active')">Active</button>
+              <button class="filter-btn" data-filter="done" onclick="filterTasks('done')">Completed</button>
+            </div>
+            <div id="input-area">
+              <input type="text" id="todo-input" placeholder="Add a new task..." />
+              <button id="add-btn" onclick="addTodo()">Add</button>
+            </div>
+            <ul id="todo-list"></ul>
+            <p id="empty-msg">No tasks yet. Add one above!</p>
+            <button id="clear-btn" onclick="clearAll()">Clear All</button>
+          </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <div id="calendar-section" style="display:none;">
+          <div id="calendar-container">
+            <div id="calendar-header-bar">
+              <button id="prev-month-btn" onclick="prevMonth()">&lt;</button>
+              <h2 id="calendar-header"></h2>
+              <button id="next-month-btn" onclick="nextMonth()">&gt;</button>
+            </div>
+            <div id="calendar-grid"></div>
+          </div>
+
+          <!-- Day Panel -->
+          <div id="day-panel">
+            <div id="day-panel-header">
+              <h3 id="day-panel-title"></h3>
+              <button id="close-day-panel" onclick="hideDayPanel()">✕</button>
+            </div>
+            <div id="day-events-list"></div>
+            <div id="new-event-area">
+              <input type="text" id="event-title-input" placeholder="Event title..." />
+              <input type="date" id="event-date-input" />
+              <input type="color" id="event-color-input" value="#e63030" />
+              <button id="add-event-btn" onclick="createEvent()">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="auth.js"></script>
+    <script src="lists.js"></script>
+    <script src="calendar.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
