@@ -1,0 +1,8 @@
+# Ignore internal doc files used for step-by-step development (kept in Gitea branch)
+master-index.md
+todo-app-implementation-plan.md
+module-*.md
+progress/steps_completed.md
+
+# Node modules (if not already removed)
+node_modules/
